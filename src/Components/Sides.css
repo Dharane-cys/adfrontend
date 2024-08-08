@@ -1,0 +1,84 @@
+.sides {
+    padding: 70px;
+   background-image: url('../Assests/bkmenu.jpg');
+}
+
+.sides h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color:white;
+    font-size: 3rem;
+    font-family: papyrus;
+}
+
+.sides-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sides-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    background-color:rgba(255, 255, 255, 0.847);
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.sides-details {
+    flex: 1;
+}
+
+.sides-item h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color:black;
+}
+
+.sides-item p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.sides-price {
+    font-weight: bold;
+    color:black;
+    margin-left: 20px;
+    font-size: 1.2em;
+}
+.sides-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #0b0b0b30;
+    color: rgb(7, 7, 7);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #232424;
+}
+

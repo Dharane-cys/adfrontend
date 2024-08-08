@@ -1,0 +1,39 @@
+.orders {
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-left: 250px; /* Adjust based on sidebar width */
+}
+
+.orders h2 {
+    margin-bottom: 60px;
+    font-size: 40px;
+    font-family: cursive;
+    text-align: center;
+}
+
+.orders table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders table, th, td {
+    border: 1px solid #ddd;
+}
+
+.orders th, .orders td {
+    padding: 10px;
+    text-align: left;
+}
+
+.orders th {
+    background-color: #333;
+    color: white;
+}
+
+.orders tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.orders tr:hover {
+    background-color: #ddd;
+}

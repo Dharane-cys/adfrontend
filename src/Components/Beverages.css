@@ -1,0 +1,84 @@
+.beverages {
+    padding: 70px;
+    background-image: url('../Assests/bkmenu.jpg');
+}
+
+.beverages h2 {
+    font-size: 3em;
+    color:white;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: papyrus;
+}
+
+.beverages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.beverages-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    background-color:rgba(255, 255, 255, 0.847);
+    margin-bottom: 20px;
+    border-radius: 10px;
+   
+}
+
+.beverages-details {
+    flex: 1;
+}
+
+.beverages-details h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color:black;
+}
+
+.beverages-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.beverages-price {
+    font-size: 1.2em;
+    color:black;
+    margin-left: 20px;
+    font-weight: bold;
+}
+.beverages-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #0b0b0b30;
+    color: rgb(7, 7, 7);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #232424;
+}

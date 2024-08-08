@@ -1,0 +1,27 @@
+.reports {
+    padding: 50px;
+    margin-left: 250px; /* Align with sidebar width if using sidebar */
+}
+
+.reports h2 {
+    font-size: 40px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.report-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.report-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.report-content p {
+    margin: 5px 0;
+}

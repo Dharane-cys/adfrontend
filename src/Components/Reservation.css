@@ -1,0 +1,56 @@
+.booking-form-container {
+    width: 400px;
+    margin-left: 1000px;
+    padding:30px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    color:black
+    
+}
+#res{
+    margin-top:0px;
+    margin-right: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../Assests/reserve.jpg);
+    height:1000px;
+
+}
+#r
+{
+    background-image: url(../Assests/res.jpg);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+#bkres {
+    width: 100%;
+    padding: 15px;
+    background-color:rgb(97, 8, 8);
+    color:bisque;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color:rgb(245, 157, 157);
+}

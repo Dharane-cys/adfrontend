@@ -1,0 +1,74 @@
+.testimonial-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-image: url('../Assests/test.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+    filter: brightness(70%);
+  }
+  
+  .testimonial-section h2 {
+    font-size: 3rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 100px;
+    color:black;
+    text-align: left;
+    margin-top: 70px;
+    margin-left: 150px;
+  }
+  
+  .testimonial {
+   
+    z-index: 2;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 300px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonial p {
+    font-size: 1rem;
+    color:black;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+  
+  .client-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .client-info img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .client-info h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .client-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .slick-dots li button:before {
+    color:rgb(255, 205, 6);
+    margin-top: 100px;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: rgb(255, 205, 6);
+  }
+  

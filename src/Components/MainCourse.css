@@ -1,0 +1,84 @@
+.main-course {
+    padding: 70px;
+   background-image: url('../Assests/bkmenu.jpg');
+
+}
+
+.main-course h2 {
+    font-size: 3em;
+    color:white;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: papyrus;
+}
+
+.main-course-list {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.main-course-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    background-color:rgba(255, 255, 255, 0.847);
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.main-course-details {
+    flex: 1;
+}
+
+.main-course-details h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color:black;
+}
+
+.main-course-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.main-course-price {
+    font-size: 1.2em;
+    color:black;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.main-course-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #0b0b0b30;
+    color: rgb(7, 7, 7);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #232424;
+}

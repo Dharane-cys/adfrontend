@@ -1,0 +1,96 @@
+.drop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+#menu
+{
+  background-image: url("../Assests/menu.jpeg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
+}
+.blink{
+  font-weight: bold;
+  color:rgb(17, 16, 16);
+  font-size: 70px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  padding-left:100px;
+  padding-top:270px;
+}
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink 2.5s linear infinite;
+}
+
+
+  .menu-items
+{
+    list-style-type: none;
+}
+  .navbar-links li a {
+    color: brown;
+    text-decoration: none;
+    font-size: 19px;
+  }
+  
+  .navbar-contact a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .menu-item {
+    position: relative;
+  }
+  
+  .menu-link {
+    font-family: papyrus;
+    text-decoration: none;
+    color: brown;
+font-weight: bold;
+font-size: 25px;
+  
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    z-index: 1;
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown-image {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+  }
+  

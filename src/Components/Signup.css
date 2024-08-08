@@ -1,0 +1,75 @@
+.signup-container {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding-right: 900px;
+  box-sizing: border-box;
+  background: url('../Assests/sign.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  
+}
+
+
+#signh2 {
+ 
+  margin-right:150px ;
+  margin-bottom: 20px;
+  color:white;
+}
+
+.form-groups {
+  margin-bottom: 15px;
+  text-align: left;
+  color:white;
+}
+
+.form-groups label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.form-groups input {
+  width: 85%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius:6px;
+}
+
+.error {
+  color: red;
+  margin-bottom: 15px;
+}
+
+.bttn {
+  background-color: #6d5006;
+  color: #fff;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 30px;
+  width:330px;
+  font-size: 16px;
+  height:50px;
+}
+
+.bttn:hover {
+  background-color: #341919;
+  
+}
+
+.login-option {
+  margin-top: 20px;
+  color:white;
+}
+
+.login-option a{
+  text-decoration: none;
+  color: rgb(244, 242, 242);
+}
+
+.login-option a:hover{
+  text-decoration: underline;
+}
