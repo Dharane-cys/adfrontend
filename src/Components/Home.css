@@ -1,23 +1,26 @@
-.home-container {
-  text-align: center;
-  background-image: url("../Assests/home.png");
-  background-attachment: fixed;
+.home-contain {
+  background-color: black;
   background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  opacity: .9;
+  background-position: center;
+  background-repeat: no-repeat; 
+  position: fixed; 
+  width: 100%;
+  height: 100%; 
+  top: 0; 
+  left: 0;
   }
 
 .home-container h1{
   padding-top: 200px;
+  padding-left: 400px;
   color: honeydew;
   font-style: italic;
-  font-size:80px;
+  font-size:70px;
   font-family: Lucida Handwriting;
 }
 .home-container h2{
   font-family:papyrus;
-  margin-left:30px;
+  margin-left:530px;
   font-size: 30px;
   color:rgb(237, 237, 144)
 
@@ -25,13 +28,14 @@
 .btnhome{
   background-color:darkkhaki;
   color: black;
-  padding: 15px 30px;
+  padding:10px 20px;
   border : none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 17px;
   font-style: italic;
   font-weight: bold;
-  margin-right: 30px;
+  margin-right: 50px;
   margin-top: 20px;
+  margin-left: 570px;
 }

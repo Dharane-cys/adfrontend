@@ -1,0 +1,78 @@
+.category-form-container {
+    margin: auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#cat
+{
+    background-color:black;
+}
+#clh {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-left: 200px;
+    color:white;
+    font-size: 25px;
+    margin-bottom: 30px;
+    padding-top: 30px;
+}
+
+.catform{
+    display: block;
+    font-weight: bold;
+    color: #fffefe;
+    width:40%;
+    border-radius: 0%;
+    margin-left: 100px;
+}
+
+input[type="text"], input[type="number"] {
+   
+    padding: 10px;
+    
+}
+
+#adbt {
+    margin-top: 30px;
+    margin-left:300px;
+    margin-bottom: 30px;
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width:20%;
+}
+
+#adbt:hover {
+    background-color: #367c37; 
+}
+
+#ulct {
+    list-style: none;
+    padding: 0;
+}
+
+#lict{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+#lict:last-child {
+    border-bottom: none;
+}
+
+#imct {
+    width: 50px; /* Fixed size for images */
+    height: 50px;
+    margin-right:20px;
+    border-radius: 4px;
+    margin-Left:40px;
+}

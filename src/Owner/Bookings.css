@@ -1,6 +1,7 @@
 
 .reservations {
     padding: 20px;
+    background-color: black;
 }
 
 .reservations h2 {
@@ -11,7 +12,7 @@
 
 .reservations table {
     margin-left: 250px;
-    width: 100%;
+    width:84%;
     border-collapse: collapse;
 }
 
@@ -22,15 +23,15 @@
 }
 
 .reservations th {
-    background-color: #f4f4f4;
+    background-color: #000000;
 }
 
 .reservations tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: black;
 }
 
 .reservations button {
-    background-color: #e74c3c;
+    background-color: #367c37; 
     color: white;
     border: none;
     padding: 5px 10px;

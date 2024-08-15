@@ -7,10 +7,11 @@ const Sidebar = () => {
             <h2>Owner</h2>
             <nav >
                 <ul>
-                    <li><a href="/orders">Orders</a></li>
+                    <li><a href ="/orders">Orders</a></li>
                     <li><a href="/menumanage">Menu Management</a></li>
+                    <li><a href="/menumanage">Staff Management</a></li>
                     <li><a href="/bookings">Reservations</a></li>
-                    <li><a href="/reports">Reports</a></li>
+                    
                 </ul>
             </nav>
         </div>

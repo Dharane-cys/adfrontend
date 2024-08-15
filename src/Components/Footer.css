@@ -1,7 +1,7 @@
 .App {
     text-align: center;
     font-family: Arial, sans-serif;
-    
+
   }
   
   
@@ -9,8 +9,8 @@
     display: flex;
     justify-content: space-between;
     padding: 5px;
-    background-color: #e9d2bb;
-    color: #0a0b0b; 
+    background-color: beige;
+    color: black; 
   }
   
   .contact-item {
@@ -70,4 +70,20 @@
     padding: 10px;
     text-align: center;
   }
-  
+  .map-container {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.map-container h2 {
+ 
+  color: #703807;
+  padding-right: 100px;
+}
+
+.map-container iframe {
+  width: 100%;
+  max-width: 600px; /* Adjust to fit your design */
+  height: 300px; /* Adjust height as needed */
+  padding-right: 100px;
+}

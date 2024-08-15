@@ -1,79 +1,98 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Starters.css';
+import { useCart } from './CartContext'; // Import the custom hook
 
 const Starters = () => {
-    const [starterItems, setStarterItems] = useState([]); // State for storing starter items
-    const [loading, setLoading] = useState(true); // State for loading status
-    const [error, setError] = useState(null); // State for error handling
-    const [cart, setCart] = useState({}); // State for items in the cart
+    const [starterItems, setStarterItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [cart, setCart] = useState({});
+    const { addToCart } = useCart(); 
 
     useEffect(() => {
-        // Function to fetch starter items from the backend
         const fetchStarterItems = async () => {
             try {
-                const response = await axios.get('https://api.example.com/starters'); // Replace with your API endpoint
-                setStarterItems(response.data); // Set the fetched data to starterItems state
+                const response = await axios.get('http://localhost:8080/api/Starter'); 
+                setStarterItems(response.data);
             } catch (error) {
+                console.error('Failed to fetch starter items:', error);
                 setError('Failed to fetch data. Please try again later.');
             } finally {
-                setLoading(false); // Set loading to false once fetching is done
+                setLoading(false);
             }
         };
 
         fetchStarterItems();
     }, []);
 
-    // Function to increase the quantity of an item in the cart
     const handleAdd = (itemName) => {
-        setCart((prevCart) => ({
+        setCart(prevCart => ({
             ...prevCart,
-            [itemName]: (prevCart[itemName] || 0) + 1,
+            [itemName]: (prevCart[itemName] || 0) + 1
         }));
     };
 
-    // Function to decrease the quantity of an item in the cart
     const handleSubtract = (itemName) => {
-        setCart((prevCart) => ({
+        setCart(prevCart => ({
             ...prevCart,
-            [itemName]: Math.max((prevCart[itemName] || 0) - 1, 0),
+            [itemName]: Math.max((prevCart[itemName] || 0) - 1, 0)
         }));
     };
 
-    // Function to alert the quantity of the item added to the cart
-    const handleAddToCart = (itemName) => {
-        alert(`${cart[itemName] || 0} ${itemName} added to cart.`);
+    const handleAddToCart = (itemName, price, image) => {
+        const quantity = cart[itemName] || 0;
+        if (quantity > 0) {
+            addToCart(itemName, quantity, price, image ); 
+             
+        }
     };
 
-    if (loading) {
-        return <div>Loading...</div>; // Display a loading indicator
-    }
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
 
-    if (error) {
-        return <div>{error}</div>; // Display an error message
-    }
+    const imageStyle = {
+        width: '30%',
+        height: 'auto',
+        borderRadius: '10px', 
+    };
+    const descriptionStyle = {
+        marginLeft: '20px', 
+        fontSize: '16px', 
+    };
+    const containerStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        padding: '20px',
+        backgroundColor: '#fff', 
+        maxWidth: '800px', 
+    };
 
     return (
         <div className="starters">
             <h2>Starters</h2>
             <div className="starters-list">
-                {/* Map over the starterItems array and create a list of items */}
                 {starterItems.map((item, index) => (
                     <div key={index} className="starters-item">
-                        <div className="starters-details">
-                            <h3>{item.name}</h3>
-                            <p>{item.description}</p>
-                            <p>{item.price}</p>
+                        <div className="starters-details" style={containerStyle}>
+                            <img style={imageStyle} src={item.image} alt={item.dishName} />
+                            <div style={descriptionStyle}>
+                                <h3>{item.dishName}</h3>
+                                <p style={{color:'black'}}>{item.description}</p>
+                                <p style={{color:'black',fontWeight:'bold'}}>₹{item.dishPrice}</p>
+                            </div>
                         </div>
-                        <p className="starters-price">{item.price}</p>
                         <div className="quantity-controls">
-                            {/* Buttons to adjust the quantity of the item */}
-                            <button onClick={() => handleSubtract(item.name)}>-</button>
-                            <span>{cart[item.name] || 0}</span>
-                            <button onClick={() => handleAdd(item.name)}>+</button>
+                            <button style={{backgroundColor:'black',color:'white',padding:'7px'}}onClick={() => handleSubtract(item.dishName)}>-</button>
+                            <span style={{color:'black',fontWeight:'bold'}}>{cart[item.dishName] || 0}</span>
+                            <button style={{backgroundColor:'black',color:'white',padding:'7px'}}onClick={() => handleAdd(item.dishName)}>+</button>
                         </div>
-                        {/* Button to add the item to the cart */}
-                        <button onClick={() => handleAddToCart(item.name)}>Add to Cart</button>
+                        <button
+                            style={{marginRight:'100px', width:'20%',backgroundColor:'black',color:'white',padding:'15px'}}
+                            onClick={() => handleAddToCart(item.dishName, item.dishPrice, item.image)}
+                        >
+                            Add to Cart
+                        </button>
                     </div>
                 ))}
             </div>

@@ -1,0 +1,126 @@
+/* General styles for the cart page */
+.cart-page {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header style */
+.cart-page h2 {
+    text-align: center;
+    color:black;
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+/* Style for the cart items container */
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Style for individual cart item */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Aligns children to both ends of the container */
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for item image */
+.cart-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+/* Style for item details */
+.cart-item .item-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Allows the details to take up available space */
+}
+
+/* Style for item name and quantity */
+.cart-item .item-details p {
+    margin: 0;
+    font-size: 18px;
+    color: black;
+}
+
+/* Style for the price */
+.cart-item .item-price {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Style for the total price */
+.cart-page h3 {
+    text-align: right;
+    color: #444;
+    margin-top: 20px;
+    font-size: 20px;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.item-image {
+    width: 80px; /* Adjust as needed */
+    height: 80px; /* Adjust as needed */
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.item-quantity, .item-price {
+    font-size: 14px;
+}
+
+.item-total {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+}
+.cart-item {
+    /* Existing styles */
+    position: relative;
+}
+
+.remove-button {
+background-color: #fff;
+    color:black;
+    border: none;
+    padding: 1px 8px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 3px;
+}

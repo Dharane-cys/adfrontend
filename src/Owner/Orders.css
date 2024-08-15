@@ -1,39 +1,56 @@
-.orders {
+.order-page {
     padding: 20px;
-    background-color: #f9f9f9;
-    margin-left: 250px; /* Adjust based on sidebar width */
+    font-family: Arial, sans-serif;
 }
 
-.orders h2 {
-    margin-bottom: 60px;
-    font-size: 40px;
-    font-family: cursive;
-    text-align: center;
+.customer-list,
+.order-items {
+    margin-bottom: 40px;
 }
 
-.orders table {
-    width: 100%;
-    border-collapse: collapse;
+.customer-list h3,
+.order-items h3 {
+    margin-bottom: 20px;
 }
 
-.orders table, th, td {
-    border: 1px solid #ddd;
+.customer-list ul,
+.order-items ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.orders th, .orders td {
+.customer-list li,
+.order-items li {
+    margin-bottom: 10px;
     padding: 10px;
-    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-.orders th {
-    background-color: #333;
-    color: white;
+.item-details {
+    display: flex;
+    align-items: center;
 }
 
-.orders tr:nth-child(even) {
-    background-color: #f2f2f2;
+.item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
 }
 
-.orders tr:hover {
-    background-color: #ddd;
+.item-info {
+    flex: 1;
+}
+
+.item-info h4 {
+    margin: 0 0 10px;
+}
+
+.item-info p {
+    margin: 5px 0;
+}
+
+.item-info p:last-child {
+    font-weight: bold;
 }

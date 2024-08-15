@@ -4,16 +4,16 @@
     left: 0;
     width: 250px; /* Adjust width as needed */
     height: 100vh; /* Full height */
-    background-color: #333;
-    color: white;
+    background-color: #e8dfdf;
+    color:black;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     overflow-y: auto; /* Scroll if content overflows */
 }
 
 .sidebar h2 {
-    text-align: center;
     margin-bottom: 20px;
+    color:black;
 }
 
 .sidebar nav ul {
@@ -26,13 +26,15 @@
 }
 
 .sidebar nav ul li a {
-    color: white;
+    color: rgb(2, 2, 2);
     text-decoration: none;
     display: block;
     padding: 10px;
     border-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .sidebar nav ul li a:hover {
-    background-color: #575757;
+    background-color: #6c6767;
 }

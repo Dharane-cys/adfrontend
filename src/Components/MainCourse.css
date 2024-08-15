@@ -1,15 +1,17 @@
 .main-course {
     padding: 70px;
-   background-image: url('../Assests/bkmenu.jpg');
+   background-image: url('../Assests/bkmenu.jpeg');
 
 }
 
 .main-course h2 {
     font-size: 3em;
-    color:white;
+    color:black;
+    font-weight: bolder;
     margin-bottom: 40px;
     text-align: center;
     font-family: papyrus;
+    
 }
 
 .main-course-list {
@@ -24,7 +26,7 @@
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid #ddd;
-    background-color:rgba(255, 255, 255, 0.847);
+    background-color:rgb(255, 255, 255);
     margin-bottom: 20px;
     border-radius: 10px;
 }

@@ -6,17 +6,19 @@
     background-repeat: no-repeat;
     background-size: cover;
     height:100vh;
-    filter: brightness(70%);
+    filter: brightness(90%);
   }
   
   .testimonial-section h2 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-family:Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 100px;
     color:black;
+    font-weight: bold;
     text-align: left;
-    margin-top: 70px;
-    margin-left: 150px;
+    margin-top: 20px;
+    margin-left: 140px;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
   }
   
   .testimonial {

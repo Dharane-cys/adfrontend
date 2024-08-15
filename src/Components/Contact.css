@@ -35,12 +35,13 @@
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
+    color:white
   }
   
   .contact-container p {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 16px;
-    color: #2c2b2b;
+    color:white;
     margin-bottom: 20px;
   }
   
@@ -62,16 +63,18 @@
   
   .contact-items i {
     font-size: 30px;
-    color: #333;
+    color: black;
     margin-bottom: 10px;
   }
   
   .contact-items h3 {
     font-size: 24px;
     margin-bottom: 30px;
+    font-weight: bold;
   }
   
   .contact-items p {
     font-size: 16px;
-    color: #666;
+    color:black;
+    font-weight: bold;
   }

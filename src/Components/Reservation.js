@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Reservation.css'; 
 import Navbar from './Navbar';
 import { createreserve } from '../Services/Service'; 
@@ -6,60 +6,59 @@ import { useNavigate } from 'react-router-dom';
 import Modal from './Modal'; 
 
 const BookingForm = () => {
-    // Initialize useNavigate hook for navigation
     const navi = useNavigate();
 
-    // State hooks for managing form fields and form errors
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
+    const [hour, setHour] = useState('12');
+    const [minute, setMinute] = useState('00');
+    const [period, setPeriod] = useState('AM');
     const [noofpeople, setNoofpeople] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
-    const [modalShow, setModalShow] = useState(false); // State for modal visibility
+    const [modalShow, setModalShow] = useState(false);
 
-    // Function to handle form submission
+    // Get today's date in YYYY-MM-DD format
+    const todayDate = new Date().toISOString().split('T')[0];
+
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent default form submission behavior
+        e.preventDefault();
         
-        // Validate that all fields are filled
-        if (!name || !email || !date || !time || !noofpeople || !message) {
+        if (!name || !email || !date || !hour || !minute || !period || !noofpeople || !message) {
             setError('Please fill in all fields.');
         } else {
-            setError(''); // Clear any previous error
-            const user = { name, email, date, time, noofpeople, message }; // Create user object
+            setError('');
+            const time = `${hour}:${minute} ${period}`;
+            const user = { name, email, date, time, noofpeople, message };
 
             try {
                 console.log("Reserved: ", { name, email, date, time, noofpeople, message });
-                const response = await createreserve(user); // Make API call to backend
+                const response = await createreserve(user);
                 console.log(response.data);
-                setModalShow(true); // Show modal upon successful reservation
+                setModalShow(true);
             } catch (error) {
                 console.error(error);
-                setError('An error occurred. Please try again.'); // Set error message if API call fails
+                setError('An error occurred. Please try again.');
             }
         }
     };
 
-    // Function to handle closing the modal
     const handleCloseModal = () => {
-        setModalShow(false); // Hide the modal
-        navi("/menu"); // Navigate to the menu page
-        
+        setModalShow(false);
+        navi("/menu");
     };
 
     return (
-        <div id="r">
-            <Navbar /> {/* Render Navbar component */}
+        <div>
+            <Navbar /> 
             <div id="res">
                 <div className="booking-form-container">
-                    <h2 style={{ textAlign: 'center', marginTop: '150px', fontFamily: 'Georgia', fontWeight: 'bold', fontSize: '40px' }}>
-                        Book a Table
+                    <h2 style={{ textAlign: 'center', marginTop: '50px', fontFamily: 'Georgia', fontWeight: 'bold', fontSize: '40px' }}>
+                        <br /> Book a Table
                     </h2>
                     <br />
-                    <form onSubmit={handleSubmit}> {/* Handle form submission */}
-                        {/* Form field for Name */}
+                    <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="name">Name:</label>
                             <input
@@ -67,11 +66,10 @@ const BookingForm = () => {
                                 id="name"
                                 name="name"
                                 value={name}
-                                onChange={(e) => setName(e.target.value)} // Update state on input change
+                                onChange={(e) => setName(e.target.value)}
                             />
                         </div>
 
-                        {/* Form field for Email */}
                         <div className="form-group">
                             <label htmlFor="email">Email:</label>
                             <input
@@ -80,74 +78,80 @@ const BookingForm = () => {
                                 name="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                required // Email field is required
+                                required
                             />
                         </div>
 
-                        {/* Form field for Date */}
+                        <div className="form-group">
+                        <label htmlFor="guests">Number of Guests:</label>
+                        <input
+                            type="number"
+                            id="guests"
+                            name="guests"
+                            value={noofpeople}
+                            onChange={(e) => setNoofpeople(e.target.value)}
+                            required
+                        />
+                    </div>
+
                         <div className="form-group">
                             <label htmlFor="date">Date:</label>
                             <input
-                              
+                                type="date"
                                 id="date"
                                 name="date"
                                 value={date}
                                 onChange={(e) => setDate(e.target.value)}
-                                required // Date field is required
+                                min={todayDate} // Set minimum date to today
+                                required
                             />
                         </div>
 
-                        {/* Form field for Time */}
                         <div className="form-group">
                             <label htmlFor="time">Time:</label>
-                            <input
-                                type="time"
-                                id="time"
-                                name="time"
-                                value={time}
-                                onChange={(e) => setTime(e.target.value)}
-                                required // Time field is required
-                            />
+                            <div className="time-picker">
+                                <select style={{height:'35px'}} value={hour} onChange={(e) => setHour(e.target.value)}>
+                                    {Array.from({ length: 12 }, (_, i) => (
+                                        <option key={i + 1} value={i + 1}>
+                                            {i + 1}
+                                        </option>
+                                    ))}
+                                </select>
+                                &ensp;:&ensp;
+                                <select style={{height:'35px'}}value={minute} onChange={(e) => setMinute(e.target.value)}>
+                                    {Array.from({ length: 60 }, (_, i) => (
+                                        <option key={i < 10 ? `0${i}` :  i} value={i < 10 ? `0${i}` :  i}>
+                                            {i < 10 ? `0${i}` : i}
+                                        </option>
+                                    ))}
+                                </select>&ensp;&ensp;
+                                <select style={{height:'35px'}} value={period} onChange={(e) => setPeriod(e.target.value)}>
+                                    <option style={{}}value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
                         </div>
-
-                        {/* Form field for Number of Guests */}
-                        <div className="form-group">
-                            <label htmlFor="guests">Number of Guests:</label>
-                            <input
-                                type="number"
-                                id="guests"
-                                name="guests"
-                                value={noofpeople}
-                                onChange={(e) => setNoofpeople(e.target.value)}
-                                required // Number of guests field is required
-                            />
-                        </div>
-
-                        {/* Form field for Special Request */}
                         <div className="form-group">
                             <label htmlFor="specialRequest">Special Request:</label>
-                            <textarea
+                            <textarea className='restxt'
                                 id="specialRequest"
                                 name="specialRequest"
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
-                                required // Special request field is required
+                                required
                             />
                         </div>
 
-                        {/* Display error message if any */}
                         {error && <div className="error">{error}</div>}
-                        {/* Submit button */}
                         <button id="bkres" type="submit">Book Now</button>
                     </form>
 
-                    {/* Modal to show booking confirmation */}
                     <Modal show={modalShow} handleClose={handleCloseModal}>
-                        <h2>Booking Confirmed!</h2>
+                        <h2 style={{color:'black'}}>Booking Confirmed!</h2>
                         <p>Name: {name}</p>
                         <p>Email: {email}</p>
                         <p>Date: {date}</p>
-                        <p>Time: {time}</p>
+                        <p>Time: {`${hour}:${minute} ${period}`}</p>
                         <p>Number of Guests: {noofpeople}</p>
                         <p>Special Request: {message}</p>
                     </Modal>

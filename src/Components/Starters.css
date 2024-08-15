@@ -1,14 +1,14 @@
 .starters {
     padding: 70px;
-   background-image: url('../Assests/bkmenu.jpg');
-    
+   background-image: url('../Assests/bkmenu.jpeg');
 }
 
 .starters h2 {
     text-align: center;
     margin-bottom: 40px;
     font-size: 3em;
-    color: white;
+    color:black;
+    font-weight: bolder;
     font-family: papyrus;
 }
 
@@ -24,7 +24,7 @@
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid #ddd;
-    background-color:rgba(255, 255, 255, 0.847);
+    background-color:rgb(255, 255, 255);
     margin-bottom: 20px;
     border-radius: 10px;
 }
@@ -79,5 +79,5 @@ button {
 }
 
 button:hover {
-    background-color: #232424;
+    background-color: #8b8d8d;
 }

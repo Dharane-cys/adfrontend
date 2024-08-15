@@ -1,4 +1,4 @@
-#wel{
+#welc{
     background-image: url("../Assests/home1.jpg");
     height:100vh;
     background-repeat: no-repeat;
@@ -28,16 +28,15 @@
     color:black;
        
     }
-    
-   
 
 #book
 {
     height:50px;
     width:250px;
-    font-size: 20px;
+    font-size: 22px;
     background-color:rgb(24, 23, 23);
     color:beige;
     margin-left: 80px;
-
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    font-weight: bold;
 }

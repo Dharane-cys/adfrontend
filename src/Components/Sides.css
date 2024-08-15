@@ -1,12 +1,13 @@
 .sides {
     padding: 70px;
-   background-image: url('../Assests/bkmenu.jpg');
+   background-image: url('../Assests/bkmenu.jpeg');
 }
 
 .sides h2 {
     text-align: center;
     margin-bottom: 40px;
-    color:white;
+    color:black;
+    font-weight: bolder;
     font-size: 3rem;
     font-family: papyrus;
 }
@@ -23,7 +24,7 @@
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid #ddd;
-    background-color:rgba(255, 255, 255, 0.847);
+    background-color:rgba(255, 255, 255);
     margin-bottom: 20px;
     border-radius: 10px;
 }

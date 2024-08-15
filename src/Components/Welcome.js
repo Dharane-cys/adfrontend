@@ -6,20 +6,20 @@ import { Link } from "react-router-dom";
 function Home() {
     return (
         <div>
-            <Navbar /> {/* Render Navbar component */}
-            <div id="wel">
+            <Navbar /> 
+            <div id="welc">
                 <h1 id="typing-effect"> 
-                    Enjoy Our <br /> {/* Line break */}
+                    Enjoy Our <br /> 
                     Delicious Meal
                 </h1>
                 <p id="para"> 
-                    Pull up a chair and stay<br /> {/* Line break */}
-                    &ensp; a while! Book your <br /> {/* Line break with spacing */}
+                    Pull up a chair and stay<br />
+                    &ensp; a while! Book your <br /> 
                     &ensp;&ensp; table now!
                 </p>
-                <br /> {/* Line break */}
-                <Link to="/reservations"> {/* Navigation link to reservations page */}
-                    <button id="book"> {/* Button to book a table */}
+                <br /> 
+                <Link to="/reservations"> 
+                    <button id="book"> 
                         Book Table
                     </button>
                 </Link>

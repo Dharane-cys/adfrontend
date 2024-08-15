@@ -55,36 +55,36 @@ const testimonials = [
 const Testimonial = () => {
   
   const settings = {
-    dots: true, // Show dots for navigation
-    infinite: true, // Infinite looping
-    speed: 500, // Transition speed
-    slidesToShow: 3, // Number of slides 
-    slidesToScroll: 1, // Number of slides 
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 1000, // Speed of autoplay 
+    dots: true, 
+    infinite: true,
+    speed: 500, 
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true, 
+    autoplaySpeed: 1000,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2, // Show 2 slides
-          slidesToScroll: 1, // Scroll 1 slide at a time
-          infinite: true, // Infinite looping
-          dots: true // Show dots for navigation
+          slidesToShow: 2, 
+          slidesToScroll: 1,
+          infinite: true, 
+          dots: true 
         }
       },
       {
         breakpoint: 600, 
         settings: {
-          slidesToShow: 1, // Show 1 slide
-          slidesToScroll: 1, // Scroll 1 slide at a time
-          initialSlide: 1 // Start with the second slide
+          slidesToShow: 1, 
+          slidesToScroll: 1, 
+          initialSlide: 1 
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1, // Show 1 slide
-          slidesToScroll: 1 // Scroll 1 slide at a time
+          slidesToShow: 1, 
+          slidesToScroll: 1 
         }
       }
     ]
@@ -92,18 +92,18 @@ const Testimonial = () => {
 
   return (
     <div>
-      <Navbar/> {/* Render Navbar component */}
-      <div className="testimonial-section"> {/* Container for testimonials */}
-        <h2>Our Clients Say!!!</h2> {/* Heading */}
-        <Slider {...settings}> {/* Slider component with settings */}
-          {testimonials.map((testimonial, index) => ( // Map over testimonials array
-            <div className="testimonial" key={index}> {/* Render each testimonial */}
-              <p>"{testimonial.text}"</p> {/* Testimonial text */}
-              <div className="client-info"> {/* Container for client info */}
-                <img src={testimonial.image} alt={testimonial.name} /> {/* Client image */}
+      <Navbar/> 
+      <div className="testimonial-section"> 
+        <h2>Our Clients Say!!!</h2> 
+        <Slider {...settings}> 
+          {testimonials.map((testimonial, index) => ( 
+            <div className="testimonial" key={index}> 
+              <p>"{testimonial.text}"</p> 
+              <div className="client-info"> 
+                <img src={testimonial.image} alt={testimonial.name} /> 
                 <div>
-                  <h4>{testimonial.name}</h4> {/* Client name */}
-                  <p>{testimonial.profession}</p> {/* Client profession */}
+                  <h4>{testimonial.name}</h4> 
+                  <p>{testimonial.profession}</p> 
                 </div>
               </div>
             </div>
@@ -114,4 +114,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial; // Export the Testimonial component
+export default Testimonial; 

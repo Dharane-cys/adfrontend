@@ -1,3 +1,4 @@
+/* Modal.css */
 .modal {
     display: none;
     position: fixed;
@@ -16,13 +17,12 @@
 }
 
 .modal-content {
-    text-align: center;
+    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 40%;
-    background-color: white;
-    
+    width: 30%;
+    color: black;
 }
 
 .close {

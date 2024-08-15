@@ -1,6 +1,6 @@
 import React from 'react';
-import '../Components/Home.css'; // Import CSS file for styling the Home component
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from react-router-dom for navigation
+import '../Components/Home.css'; 
+import { useNavigate } from 'react-router-dom'; 
 
 function Home() {
     // Create a navigate function using the useNavigate hook
@@ -17,15 +17,15 @@ function Home() {
     };
 
     return (
-        <div className="home-container"> {/* Main container for the Home page */}
-            <h1>FORK & FORTUNE</h1> {/* Main heading for the Home page */}
+        <div className='home-contain'>
+        <div className="home-container"> 
+            <h1>FORK & FORTUNE</h1> 
             <br></br>
-            <h2>Experience the Fantasy at F&F</h2> {/* Subheading for the Home page */}
+            <h2>Experience the Fantasy at F&F</h2> 
             <br></br>
-            {/* Button for owner login, triggers handleLogin function on click */}
             <button className="btnhome" onClick={handleLogin}>Owner</button>
-            {/* Button for customer signup, triggers handleSignup function on click */}
             <button className="btnhome" style={{ marginLeft: "20px" }} onClick={handleSignup}>Customer</button>
+        </div>
         </div>
     );
 }

@@ -4,6 +4,7 @@ import { useState} from 'react';
 import '../Owner/Ownerlogin.css';
 import logo from '../Assests/logo.png';
 import { useNavigate } from 'react-router-dom';
+import { Message } from '@mui/icons-material';
 
 
 function Login(){
@@ -22,10 +23,11 @@ function Login(){
     }
     else if(email==="727722eucy047@skcet.ac.in" && password==="siva-1301")
     {
-         nav("/Ownerhome");
+
+     nav('/Ownerhome')
     }
      else {
-      alert("User does not exist");
+      Message("User does not exist");
     }
   };
 
@@ -39,7 +41,7 @@ function Login(){
         <div class='input-box'>
         <input
         type="text"
-        placeholder="Username"
+        placeholder="Email"
         className="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -61,7 +63,7 @@ function Login(){
         {error && <div className="error">{error}</div>}
         </div>
        
-        <button
+        <button style={{backgroundColor:'brown',borderRadius:'25px',color:'white'}}
         type='submit'
         class='btn'
         > Login</button>

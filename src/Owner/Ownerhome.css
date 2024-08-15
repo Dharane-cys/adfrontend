@@ -1,6 +1,9 @@
 
 .app-container {
     display: flex;
+   height: 100vh;
+   background-color: black;
+
 }
 
 .contents {
@@ -9,5 +12,6 @@
     padding-top: 300px;
     font-family: cursive;
     flex: 1;
+    color: white;
     text-align: center;
 }

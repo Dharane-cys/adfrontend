@@ -1,84 +1,71 @@
-import React, { useState } from 'react'; // Import React and useState hook
-import './MainCourse.css'; // Import CSS file for styling
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './MainCourse.css';
+import { useCart } from './CartContext';
 
-// Array of main course items with their details
-const mainCourseItems = [
-    {
-        name: 'Grilled Chicken',
-        description: 'Juicy grilled chicken breast served with seasonal vegetables and mashed potatoes.',
-        price: '$12.99',
-    },
-    {
-        name: 'Spaghetti Bolognese',
-        description: 'Classic spaghetti with a rich and savory meat sauce.',
-        price: '$11.49',
-    },
-    {
-        name: 'Vegetarian Burger',
-        description: 'A hearty vegetable patty served on a fresh bun with lettuce, tomato, and avocado.',
-        price: '$10.99',
-    },
-    {
-        name: 'Salmon Fillet',
-        description: 'Pan-seared salmon fillet with a lemon dill sauce, served with rice and asparagus.',
-        price: '$14.49',
-    },
-    {
-        name: "Beef Stroganoff",
-        description: "Tender beef strips in a creamy mushroom sauce, served over egg noodles.",
-        price: "$13.99"
-    },
-    {
-        name: "Chicken Alfredo",
-        description: "Grilled chicken breast in a creamy Alfredo sauce, served over fettuccine pasta.",
-        price: "$12.49"
-    },
-    {
-        name: "Lamb Chops",
-        description: "Grilled lamb chops with rosemary and garlic, served with roasted potatoes and green beans.",
-        price: "$16.99"
-    },
-    {
-        name: "Stuffed Bell Peppers",
-        description: "Bell peppers stuffed with quinoa, black beans, corn, and cheese, baked to perfection.",
-        price: "$11.99"
-    },
-    {
-        name: "BBQ Ribs",
-        description: "Slow-cooked BBQ ribs, served with coleslaw and cornbread.",
-        price: "$15.49"
-    },
-    {
-       name: "Shrimp Scampi",
-        description: "Sautéed shrimp in a garlic butter sauce, served over linguine with a side of garlic bread.",
-        price: "$14.99"
-    },
-];
-
-// MainCourse component
 const MainCourse = () => {
-    // State to manage items in the cart
+    const [mainCourseItems, setMainCourseItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [cart, setCart] = useState({});
+    const { addToCart } = useCart();
 
-    // Function to increase the quantity of an item in the cart
+    useEffect(() => {
+        const fetchMainCourseItems = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/api/MainCourse'); // Ensure the API endpoint is correct
+                setMainCourseItems(response.data);
+            } catch (error) {
+                console.error('Failed to fetch main course items:', error);
+                setError('Failed to fetch data. Please try again later.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchMainCourseItems();
+    }, []);
+
     const handleAdd = (itemName) => {
-        setCart((prevCart) => ({
+        setCart(prevCart => ({
             ...prevCart,
-            [itemName]: (prevCart[itemName] || 0) + 1,
+            [itemName]: (prevCart[itemName] || 0) + 1
         }));
     };
 
-    // Function to decrease the quantity of an item in the cart
     const handleSubtract = (itemName) => {
-        setCart((prevCart) => ({
+        setCart(prevCart => ({
             ...prevCart,
-            [itemName]: Math.max((prevCart[itemName] || 0) - 1, 0),
+            [itemName]: Math.max((prevCart[itemName] || 0) - 1, 0)
         }));
     };
 
-    // Function to show an alert with the quantity of the item added to the cart
-    const handleAddToCart = (itemName) => {
-        alert(`${cart[itemName] || 0} ${itemName} added to cart.`);
+    const handleAddToCart = (itemName, price, image) => {
+        const quantity = cart[itemName] || 0;
+        if (quantity > 0) {
+            addToCart(itemName, quantity, price, image);
+           
+        }
+    };
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
+
+    const imageStyle = {
+        width: '30%',
+        height: 'auto',
+        borderRadius: '10px', 
+    };
+    const descriptionStyle = {
+        marginLeft: '20px', 
+        fontSize: '16px', 
+    };
+    const containerStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        padding: '20px',
+        backgroundColor: '#fff', 
+        maxWidth: '800px', 
     };
 
     return (
@@ -87,17 +74,25 @@ const MainCourse = () => {
             <div className="main-course-list">
                 {mainCourseItems.map((item, index) => (
                     <div key={index} className="main-course-item">
-                        <div className="main-course-details">
-                            <h3>{item.name}</h3>
-                            <p>{item.description}</p>
+                        <div className="main-course-details" style={containerStyle}>
+                            <img style={imageStyle} src={item.image} alt={item.dishName} />
+                            <div style={descriptionStyle}>
+                                <h3>{item.dishName}</h3>
+                                <p style={{color:'black'}}>{item.description}</p>
+                                <p style={{color:'black',fontWeight:'bold'}}>₹{item.dishPrice}</p>
+                            </div>
                         </div>
-                        <p className="main-course-price"><b>{item.price}</b></p>
                         <div className="quantity-controls">
-                            <button onClick={() => handleSubtract(item.name)}>-</button> {/* Decrease quantity */}
-                            <span>{cart[item.name] || 0}</span> {/* Display current quantity */}
-                            <button onClick={() => handleAdd(item.name)}>+</button> {/* Increase quantity */}
+                        <button style={{backgroundColor:'black',color:'white',padding:'7px'}}onClick={() => handleSubtract(item.dishName)}>-</button>
+                        <span style={{color:'black',fontWeight:'bold'}}>{cart[item.dishName] || 0}</span>
+                        <button style={{backgroundColor:'black',color:'white',padding:'7px'}}onClick={() => handleAdd(item.dishName)}>+</button>
                         </div>
-                        <button onClick={() => handleAddToCart(item.name)}>Add to Cart</button> {/* Add item to cart */}
+                        <button
+                            style={{marginRight:'100px', width:'20%',backgroundColor:'black',color:'white',padding:'15px'}}
+                            onClick={() => handleAddToCart(item.dishName, item.dishPrice, item.image)}
+                        >
+                            Add to Cart
+                        </button>
                     </div>
                 ))}
             </div>
@@ -105,4 +100,4 @@ const MainCourse = () => {
     );
 };
 
-export default MainCourse; // Export the MainCourse component
+export default MainCourse;

@@ -1,108 +1,98 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Sides.css';
-
-
-const sideItems = [
-    {
-        name: 'French Fries',
-        description: 'Golden and crispy potato fries served with ketchup.',
-        price: '$3.99',
-    },
-    {
-        name: 'Onion Rings',
-        description: 'Crispy fried onion rings served with a tangy dipping sauce.',
-        price: '$4.99',
-    },
-    {
-        name: 'Garlic Bread',
-        description: 'Toasted bread with garlic butter and herbs.',
-        price: '$2.99',
-    },
-    {
-        name: 'Side Salad',
-        description: 'Fresh mixed greens with tomatoes, cucumbers, and a light vinaigrette.',
-        price: '$3.99',
-    },
-    {
-        name: "Mashed Potatoes",
-        description: "Creamy mashed potatoes with a hint of butter and garlic.",
-        price: "$3.49"
-    },
-    {
-        name: "Coleslaw",
-        description: "Crispy cabbage and carrot slaw in a tangy dressing.",
-        price: "$2.99"
-    },
-    {
-        name: "Steamed Vegetables",
-        description: "A mix of seasonal steamed vegetables, lightly seasoned.",
-        price: "$3.99"
-    },
-    {
-        name: "Mac and Cheese",
-        description: "Creamy macaroni and cheese topped with a breadcrumb crust.",
-        price: "$4.49"
-    },
-    {
-        name: "Baked Beans",
-        description: "Slow-cooked beans in a rich, smoky sauce.",
-        price: "$2.99"
-    },
-    {
-        name: "Corn on the Cob",
-        description: "Sweet corn on the cob, grilled and buttered.",
-        price: "$2.49"
-    },
-];
-
+import { useCart } from './CartContext';
 
 const Sides = () => {
-    // State to manage cart items
+    const [sideItems, setSideItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [cart, setCart] = useState({});
+    const { addToCart } = useCart();
 
-    // Function to handle adding items to the cart
+    useEffect(() => {
+        const fetchSideItems = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/api/Sides'); // Ensure the API endpoint is correct
+                setSideItems(response.data);
+            } catch (error) {
+                console.error('Failed to fetch side items:', error);
+                setError('Failed to fetch data. Please try again later.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchSideItems();
+    }, []);
+
     const handleAdd = (itemName) => {
-        setCart((prevCart) => ({
+        setCart(prevCart => ({
             ...prevCart,
-            [itemName]: (prevCart[itemName] || 0) + 1, // Increment item quantity
+            [itemName]: (prevCart[itemName] || 0) + 1
         }));
     };
 
-    // Function to handle subtracting items from the cart
     const handleSubtract = (itemName) => {
-        setCart((prevCart) => ({
+        setCart(prevCart => ({
             ...prevCart,
-            [itemName]: Math.max((prevCart[itemName] || 0) - 1, 0), // Decrement item quantity, not below zero
+            [itemName]: Math.max((prevCart[itemName] || 0) - 1, 0)
         }));
     };
 
-    // Function to handle adding items to the cart 
-    const handleAddToCart = (itemName) => {
-        alert(`${cart[itemName] || 0} ${itemName} added to cart.`); // Alert user about cart update
+    const handleAddToCart = (itemName, price, image) => {
+        const quantity = cart[itemName] || 0;
+        if (quantity > 0) {
+            addToCart(itemName, quantity, price, image);
+          
+        }
+    };
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
+
+    const imageStyle = {
+        width: '30%',
+        height: 'auto',
+        borderRadius: '10px', 
+    };
+    const descriptionStyle = {
+        marginLeft: '20px', 
+        fontSize: '16px', 
+    };
+    const containerStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        padding: '20px',
+        backgroundColor: '#fff', 
+        maxWidth: '800px', 
     };
 
     return (
         <div className="sides">
-            <h2>Sides</h2> {/* Header for the Sides section */}
+            <h2>Sides</h2>
             <div className="sides-list">
-                {/* Map through the sideItems array to render each side item */}
                 {sideItems.map((item, index) => (
                     <div key={index} className="sides-item">
-                        <div className="sides-details">
-                            <h3>{item.name}</h3> {/* Item name */}
-                            <p>{item.description}</p> {/* Item description */}
+                        <div className="sides-details" style={containerStyle}>
+                            <img style={imageStyle} src={item.image} alt={item.dishName} />
+                            <div style={descriptionStyle}>
+                                <h3>{item.dishName}</h3>
+                                <p style={{color:'black'}}>{item.description}</p>
+                                <p style={{color:'black',fontWeight:'bold'}}>₹{item.dishPrice}</p>
+                            </div>
                         </div>
-                        <p className="sides-price"><b>{item.price}</b></p> {/* Item price */}
                         <div className="quantity-controls">
-                            {/* Button to decrease item quantity */}
-                            <button onClick={() => handleSubtract(item.name)}>-</button>
-                            {/* Display current item quantity */}
-                            <span>{cart[item.name] || 0}</span>
-                            {/* Button to increase item quantity */}
-                            <button onClick={() => handleAdd(item.name)}>+</button>
+                        <button style={{backgroundColor:'black',color:'white',padding:'7px'}}onClick={() => handleSubtract(item.dishName)}>-</button>
+                        <span style={{color:'black',fontWeight:'bold'}}>{cart[item.dishName] || 0}</span>
+                        <button style={{backgroundColor:'black',color:'white',padding:'7px'}}onClick={() => handleAdd(item.dishName)}>+</button>
                         </div>
-                        {/* Button to add item to cart */}
-                        <button onClick={() => handleAddToCart(item.name)}>Add to Cart</button>
+                        <button
+                            style={{marginRight:'100px', width:'20%' ,backgroundColor:'black',color:'white',padding:'15px'}}
+                            onClick={() => handleAddToCart(item.dishName, item.dishPrice, item.image)}
+                        >
+                            Add to Cart
+                        </button>
                     </div>
                 ))}
             </div>

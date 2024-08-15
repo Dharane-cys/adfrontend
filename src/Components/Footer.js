@@ -7,37 +7,41 @@ function Footer() {
       <div className="Footer">
         <main>
           <section className="contact">
-            {/* Company Information Section */}
             <div className="contact-item">
-              <h2 style={{ textAlign: 'left' }}>Company</h2> {/* Section heading */}
+              <h2>Company</h2>
               <ul>
-                {/* List of company-related links */}
                 <li>About Us</li>
                 <li>Contact Us</li>
                 <li>Reservation</li>
-                <li>Privacy Policy</li>
-                <li>Terms & Condition</li>
+                <li>Menu List</li>
+                <li>Terms & Conditions</li>
               </ul>
             </div>
             
             {/* Opening Hours Section */}
             <div className="contact-item">
-              <h2>Opening</h2> {/* Section heading */}
-              <p>Monday : 9.00AM - 9.00PM</p> {/* Opening hours */}
-              <p>Tuesday : 9.00AM - 9.00PM</p>
-              <p>Wednesday : 9.00AM - 9.00PM</p>
-              <p>Thursday : 9.00AM - 9.00PM</p>
-              <p>Friday : 9.00AM - 9.00PM</p>
-              <p>Saturday : 9.00AM - 9.00PM</p>
-              <p>Sunday : 10.00AM - 8.00PM</p>
+              <h2>Opening</h2>
+              <p>Monday: 9.00AM - 9.00PM</p>
+              <p>Tuesday: 9.00AM - 9.00PM</p>
+              <p>Wednesday: 9.00AM - 9.00PM</p>
+              <p>Thursday: 9.00AM - 9.00PM</p>
+              <p>Friday: 9.00AM - 9.00PM</p>
+              <p>Saturday: 9.00AM - 9.00PM</p>
+              <p>Sunday: 10.00AM - 8.00PM</p>
             </div>
 
-            {/* Newsletter Subscription Section */}
-            <div className="contact-item">
-              <h2>Newsletter</h2> {/* Section heading */}
-              <p>Receive the latest news from our restaurant.</p> {/* Subscription prompt */}
-              <input type="email" placeholder="Your email" /> {/* Email input field */}
-              <button>SIGNUP</button> {/* Signup button */}
+            {/* Google Map Section */}
+            <div className="map-container">
+              <h2>Find Us Here</h2>
+              <iframe
+                title="Google Maps"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.877940958084!2d76.95592531462234!3d11.00128479222281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859c0342e6eb3%3A0x65e3c7a9b0f3b0d9!2sSri%20Krishna%20College%20of%20Technology!5e0!3m2!1sen!2sin!4v1605944077299!5m2!1sen!2sin"
+                width="500"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+              ></iframe>
             </div>
           </section>
         </main>

@@ -20,18 +20,18 @@ const Signup = () => {
     e.preventDefault(); // Prevent default form submission behavior
     // Check if all required fields are filled
     if (!name || !email || !password) {
-      setError('Please fill in all fields.'); // Set error message if fields are missing
+      setError('Please fill in all fields.'); 
     } else {
-      setError(''); // Clear error message if all fields are filled
-      const user = { name, email, password }; // Create user object with form data
+      setError(''); 
+      const user = { name, email, password };
       try {
         console.log("Signed in : ", { name, email, password });
-        const response = await createuser(user); // Make API call to create user
-        console.log(response.data); // Log response data
-        nav("/Welcome"); // Navigate to the Welcome page on successful signup
+        const response = await createuser(user); 
+        console.log(response.data); 
+        nav("/login"); 
       } catch (error) {
-        console.error(error); // Log error in case of a failed API call
-        setError('An error occurred. Please try again.'); // Set error message for failed signup
+        console.error(error); 
+        setError('An error occurred. Please try again.'); 
       }
     }
   };
